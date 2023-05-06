@@ -66,33 +66,26 @@ function draw() {
     //mover o solo
     ground.velocityX = -4;
     //pontuação
-    score = score + Math.round(frameCount/60);
-    
+    score = score + Math.round(frameCount/60); 
     if (ground.x < 0){
       ground.x = ground.width/2;
-    }
-    
+    } 
     //pular quando a tecla de espaço for pressionada
     if(keyDown("space")&& trex.y >= 100) {
         trex.velocityY = -13;
     }
-    
     //adicione gravidade
     trex.velocityY = trex.velocityY + 0.8
-  
     //gere as nuvens
     spawnClouds();
-  
     //gere obstáculos no solo
     spawnObstacles();
-    
     if(obstaclesGroup.isTouching(trex)){
         gameState = END;
     }
   }
    else if (gameState === END) {
       ground.velocityX = 0;
-     
      obstaclesGroup.setVelocityXEach(0);
      cloudsGroup.setVelocityXEach(0);
    }
