@@ -56,9 +56,11 @@ function setup() {
 function draw() {
   background(180);
   //exibindo pontuacãO
-  text("Score: "+ score, 500,50);
+  text("Score: "+ score, 500,50); 
+  //impedir que o trex caia
+  trex.collide(invisibleGround);
   
-  
+  drawSprites();
   
   if(gameState === PLAY){
     //mover o solo
@@ -95,13 +97,7 @@ function draw() {
      cloudsGroup.setVelocityXEach(0);
    }
   
- 
-  //impedir que o trex caia
-  trex.collide(invisibleGround);
-  
-  
-  
-  drawSprites();
+
 }
 
 function spawnObstacles(){
